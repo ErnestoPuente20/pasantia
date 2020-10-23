@@ -1,0 +1,10 @@
+.login-clase1{
+    background: #027495;
+    padding: 20px;
+    border-radius: 20px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+}
