@@ -1,33 +1,62 @@
-import React, {Component} from 'react'
-import './css/login.css'
+import React, {useState, useEffect} from 'react'
+import './css/login.css';
 
-const button = {
-    background: '#bad6db',
-    padding: '20px auto',
-    borderRadius: '10px',
-    fontSize: '25px',
-    cursor: 'pointer',
-    
-}
+import 'antd/dist/antd.css';
+import { Button, Input } from 'antd';
+import{UserOutlined} from '@ant-design/icons'
 
-class Login extends Component{
-    render(){
+
+const Login = () => {
+    const [login, setLogin] = useState(true);
+
+        // useEffect(() => {
+        //     setLogin(true)
+        // })
+
+        const register = () => setLogin(!login);
+
         return(
+            login ?
             <div className="login-clase1">
             <h1>LOGIN</h1>
             <br/>
                 <form>
                     <label>Correo Electronico</label><br/>
-                    <input type="email"/><br/>
+                    <Input placeholder="Correo" prefix={<UserOutlined />} size="large"/><br/>
 
                     <label>Contraseña</label><br/>
-                    <input type="password"/><br/>
+                    <Input.Password placeholder="Contraseña" size="large"/><br/>
 
-                    <input type="submit" style ={button} Value="Iniciar Sesión"/>
+                    {/* <input type="submit" style ={button} Value="Iniciar Sesión"/> */}
+                    <Button type="primary" size="large">Iniciar Sesion</Button>
+                    <Button className="register" type="primary" size="large" onClick={register}>Registro</Button>
+                </form>
+            </div>
+
+            : 
+            
+            <div className="login-clase1">
+            <h1>REGISTRO</h1>
+            <br/>
+                <form>
+
+                    <Input placeholder="Nombre"  size="large"/><br/>
+
+                    <Input placeholder="Apellido"  size="large"/><br/>
+
+                    <Input placeholder="Edad"  size="large"/><br/>
+
+                    <Input placeholder="Correo Electronico"  size="large"/><br/>
+
+                    <Input.Password placeholder="Contraseña" size="large"/><br/>
+
+                    {/* <input type="submit" style ={button} Value="Iniciar Sesión"/> */}
+                    <Button type="primary" size="large">Registrarse</Button>
+                    <Button className="register" type="primary" size="large" onClick={register}>Login</Button>
                 </form>
             </div>
         );
-    }
+    
 }
 
 export default Login;

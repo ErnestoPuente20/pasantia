@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
+//ANT DESIGN
+import 'antd/dist/antd.css';
+
 import Login from './Login';
 
 function App() {
